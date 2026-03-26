@@ -4,13 +4,78 @@ Define the executable and arguments for your context menu item.
 
 ## Launch Target
 
-The program or script to run. Choose from:
-- **Choose File** — pick an `.exe`, `.bat`.
-- **Browse Installed Apps** — select from installed Windows apps
+The program or script to run. You can **type directly** in the field or use the **Choose** button to pick from the system.
+
+### Input methods
+
+- **Type directly** — enter a command name, path, or protocol URI
+- **Choose File** — pick an `.exe`, `.bat` from the file system
+- **Browse Installed Apps** — select from installed Windows apps (Win32 & UWP/MSIX)
+
+### Target types
+
+#### Commands on PATH
+
+Programs available in the system `PATH` — no full path needed.
+
+| Target | Description |
+|--------|-------------|
+| `python` | Run Python scripts |
+| `node` | Run Node.js scripts |
+| `git` | Git commands |
+| `code` | Open with VS Code |
+| `notepad` | Open with Notepad |
+| `ffmpeg` | Media processing |
+
+#### System commands
+
+Built-in Windows commands and tools.
+
+| Target | Args example | Description |
+|--------|-------------|-------------|
+| `cmd` | `/c dir` | Run a CMD command |
+| `powershell` | `-Command "Get-ChildItem"` | Run a PowerShell command |
+| `wt` | `-d [dir]` | Open Windows Terminal |
+| `explorer` | `[dir]` | Open folder in Explorer |
+| `mstsc` | | Remote Desktop |
+| `calc` | | Calculator |
+
+#### Paths with environment variables
+
+Use `%VAR%` syntax for portable paths.
+
+| Target | Description |
+|--------|-------------|
+| `%USERPROFILE%\scripts\backup.bat` | User-specific script |
+| `%APPDATA%\tools\mytool.exe` | Roaming app data tool |
+| `%ProgramFiles%\7-Zip\7zFM.exe` | Program Files app |
+| `%SystemRoot%\System32\cleanmgr.exe` | System utility |
+| `%LOCALAPPDATA%\Programs\oh-my-posh\oh-my-posh.exe` | Local app data tool |
+
+#### Protocol URIs & shell commands
+
+Launch apps via protocol handlers or `shell:` namespace.
+
+| Target | Description |
+|--------|-------------|
+| `shell:AppsFolder\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App` | Windows Terminal (UWP) |
+| `ms-settings:` | Open Windows Settings |
+| `ms-settings:display` | Open Display settings |
+| `mailto:` | Default mail client |
+| `https://github.com` | Open URL in default browser |
 
 ## Arguments
 
 Optional command-line arguments passed to the target. A live preview of the final command is shown below the input.
+
+- If the arguments field is **empty** and no path variables are used, the clicked file path is automatically passed as the argument.
+- If the arguments field contains **custom text without any path variables**, the arguments are used as-is — the clicked file path is **not** appended automatically.
+
+## Run as Administrator
+
+Enable the **Run as Administrator** checkbox to launch the target with elevated privileges. This triggers a UAC prompt when the menu item is clicked.
+
+This uses `ShellExecute` with the `"runas"` verb internally — no PowerShell workaround needed.
 
 ## Path Variables
 
