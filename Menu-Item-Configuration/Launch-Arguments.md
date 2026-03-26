@@ -70,6 +70,7 @@ Optional command-line arguments passed to the target. A live preview of the fina
 
 - If the arguments field is **empty** and no path variables are used, the clicked file path is automatically passed as the argument.
 - If the arguments field contains **custom text without any path variables**, the arguments are used as-is — the clicked file path is **not** appended automatically.
+- To launch with **no arguments at all**, set the arguments to `[empty]`. This prevents the automatic file path from being passed.
 
 ## Run as Administrator
 
@@ -95,6 +96,7 @@ Insert variables that expand to properties of the right-clicked file at runtime:
 | `[folder:q]` | Same as `[folder]`, quoted | see below |
 | `[paths]` | All selected paths (multi-select) | `a.txt b.txt` |
 | `[paths:q]` | All selected paths, quoted | `"a.txt" "b.txt"` |
+| `[empty]` | Explicitly pass no arguments | *(empty)* |
 
 > **Tip:** Use quoted variants (`[path:q]`, `[dir:q]`, `[folder:q]`) when paths may contain spaces.
 
