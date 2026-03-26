@@ -1,0 +1,166 @@
+[
+  {
+    "IconPath": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+    "Title": "Open in VS Code",
+    "Target": "C:\\Program Files\\Microsoft VS Code\\Code.exe",
+    "Args": "[path:q]",
+    "MultiSelectBehavior": "InvokeForEach",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": "*"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0001-0000-0000-000000000001"
+  },
+  {
+    "IconPath": "",
+    "Title": "Open in Terminal X",
+    "Target": "Microsoft.WindowsTerminal_8wekyb3d8bbwe!App",
+    "Args": "-d [path:q]",
+    "MultiSelectBehavior": "OnlySingleSelection",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": "Directory"
+      },
+      {
+        "FileExtension": "Directory\\Background"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0002-0000-0000-000000000002"
+  },
+  {
+    "IconPath": "",
+    "Title": "Copy Path",
+    "Target": "cmd.exe",
+    "Args": "/c echo [path]| clip",
+    "MultiSelectBehavior": "OnlySingleSelection",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": "*"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0003-0000-0000-000000000003"
+  },
+  {
+    "IconPath": "",
+    "Title": "Rename with Folder Prefix",
+    "Target": "cmd.exe",
+    "Args": "/c ren [path:q] \u0022[dirname]_[name]\u0022",
+    "MultiSelectBehavior": "InvokeForEach",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": "*"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0004-0000-0000-000000000004"
+  },
+  {
+    "IconPath": "",
+    "Title": "Video Tools",
+    "Target": null,
+    "Args": "",
+    "MultiSelectBehavior": "InvokeForEach",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": ".mp4"
+      },
+      {
+        "FileExtension": ".mkv"
+      },
+      {
+        "FileExtension": ".avi"
+      },
+      {
+        "FileExtension": ".mov"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": true,
+    "Children": [
+      {
+        "IconPath": "",
+        "Title": "Convert to MP4",
+        "Target": "ffmpeg.exe",
+        "Args": "-i [path:q] -c:v libx264 -c:a aac \u0022[dir]\\[stem]_converted.mp4\u0022",
+        "MultiSelectBehavior": "InvokeForEach",
+        "MultiSelectDelimiter": null,
+        "FileTypes": [],
+        "DisplayConditions": [],
+        "HasSubMenu": false,
+        "Children": [],
+        "ComServer": "a1b2c3d4-0005-0001-0000-000000000005"
+      }
+    ],
+    "ComServer": "a1b2c3d4-0005-0000-0000-000000000005"
+  },
+  {
+    "IconPath": "C:\\Program Files\\7-Zip\\7zFM.exe",
+    "Title": "7-Zip Extract Here",
+    "Target": "C:\\Program Files\\7-Zip\\7z.exe",
+    "Args": "x [path:q] -o[dir:q]\\[stem]",
+    "MultiSelectBehavior": "InvokeForEach",
+    "MultiSelectDelimiter": null,
+    "FileTypes": [
+      {
+        "FileExtension": ".zip"
+      },
+      {
+        "FileExtension": ".7z"
+      },
+      {
+        "FileExtension": ".rar"
+      },
+      {
+        "FileExtension": ".tar"
+      },
+      {
+        "FileExtension": ".gz"
+      }
+    ],
+    "DisplayConditions": [],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0006-0000-0000-000000000006"
+  },
+  {
+    "IconPath": "",
+    "Title": "Run Python Script",
+    "Target": "python.exe",
+    "Args": "[path:q]",
+    "MultiSelectBehavior": "OnlySingleSelection",
+    "MultiSelectDelimiter": "",
+    "FileTypes": [
+      {
+        "FileExtension": "*"
+      }
+    ],
+    "DisplayConditions": [
+      {
+        "Target": "Name",
+        "MatchMode": "Contains",
+        "Pattern": "temp",
+        "ExcludeMatch": true
+      }
+    ],
+    "HasSubMenu": false,
+    "Children": [],
+    "ComServer": "a1b2c3d4-0008-0000-0000-000000000008"
+  }
+]
