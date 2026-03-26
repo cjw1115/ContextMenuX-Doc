@@ -91,10 +91,23 @@ Insert variables that expand to properties of the right-clicked file at runtime:
 | `[dirname]` | Parent folder name | `Docs` |
 | `[dir]` | Parent folder path | `C:\Docs` |
 | `[dir:q]` | Parent folder path, quoted | `"C:\Docs"` |
+| `[folder]` | The folder itself (folder) or parent folder (file) | see below |
+| `[folder:q]` | Same as `[folder]`, quoted | see below |
 | `[paths]` | All selected paths (multi-select) | `a.txt b.txt` |
 | `[paths:q]` | All selected paths, quoted | `"a.txt" "b.txt"` |
 
-> **Tip:** Use quoted variants (`[path:q]`, `[dir:q]`) when paths may contain spaces.
+> **Tip:** Use quoted variants (`[path:q]`, `[dir:q]`, `[folder:q]`) when paths may contain spaces.
+
+### `[folder]` vs `[dir]`
+
+`[dir]` always resolves to the **parent** of the right-clicked item. This works well for files, but can be confusing for folders:
+
+| Variable | Right-click file `C:\Docs\report.pdf` | Right-click folder `C:\Docs\Photos` |
+|----------|--------------------------------------|--------------------------------------|
+| `[dir]` | `C:\Docs` | `C:\Docs` (parent of Photos) |
+| `[folder]` | `C:\Docs` | `C:\Docs\Photos` (the folder itself) |
+
+Use `[folder]` when you want "the folder" regardless of whether the user clicked a file or a folder.
 
 ## Examples
 
