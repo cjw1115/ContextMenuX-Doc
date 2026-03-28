@@ -2,6 +2,8 @@
 
 Context Menu X lets you create custom right-click context menu items for Windows 11 File Explorer.
 
+[中文文档入口](README.zh.md)
+
 ## Menu Item Configuration
 
 - [Launch Arguments](Menu-Item-Configuration/Launch-Arguments.md) — Set the target program and command-line arguments with path variables
